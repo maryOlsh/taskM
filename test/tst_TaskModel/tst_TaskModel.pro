@@ -1,6 +1,8 @@
 QT += testlib
 QT += core gui widgets
-
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_LFLAGS += -fprofile-arcs -lgcov
+CONFIG += debug
 CONFIG += qt console warn_on depend_includepath testcase
 CONFIG -= app_bundle
 
@@ -8,16 +10,16 @@ TEMPLATE = app
 
 SOURCES +=  \
     tst_taskmodel.cpp \
-    ../TaskM/task.cpp \
-    ../TaskM/taskmodel.cpp \
-    ../TaskM/customdatamanager.cpp
+    ../../task.cpp \
+    ../../taskmodel.cpp \
+    ../../customdatamanager.cpp
 
 HEADERS += \
-    ../TaskM/task.h \
-    ../TaskM/taskmodel.h \
-    ../TaskM/customdatamanager.h
+    ../../task.h \
+    ../../taskmodel.h \
+    ../../customdatamanager.h
 
-INCLUDEPATH += ../TaskM
+INCLUDEPATH += ../../
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

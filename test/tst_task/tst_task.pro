@@ -1,8 +1,11 @@
 QT += testlib core
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_LFLAGS += -fprofile-arcs -lgcov
+CONFIG += debug
 CONFIG += console c++17 cmdline
-SOURCES += ../TaskM/task.cpp \
+SOURCES += ../../task.cpp \
            tst_task.cpp
-INCLUDEPATH += ../TaskM
+INCLUDEPATH += ../../
 
 
 

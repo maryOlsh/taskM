@@ -1,16 +1,17 @@
 QT += testlib
 QT += core gui widgets
-
-CONFIG += qt console warn_on depend_includepath testcase
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_LFLAGS += -fprofile-arcs -lgcov
+CONFIG += qt console warn_on depend_includepath testcase debug
 CONFIG -= app_bundle
 
 TEMPLATE = app
 
 SOURCES +=  \
     tst_customdatamanager.cpp \
-    ../TaskM/customdatamanager.cpp
+    ../../customdatamanager.cpp
 
 HEADERS += \
-    ../TaskM/customdatamanager.h
+    ../../customdatamanager.h
 
-INCLUDEPATH += ../TaskM 
+INCLUDEPATH += ../../

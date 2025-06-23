@@ -1,14 +1,17 @@
 QT += testlib core widgets
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_LFLAGS += -fprofile-arcs -lgcov
+CONFIG += debug
 CONFIG += console
 SOURCES += tst_integration.cpp \
-           ../TaskM/taskmodel.cpp \
-           ../TaskM/taskfilterproxymodel.cpp \
-           ../TaskM/task.cpp \
-           ../TaskM/customdatamanager.cpp
+           ../../taskmodel.cpp \
+           ../../taskfilterproxymodel.cpp \
+           ../../task.cpp \
+           ../../customdatamanager.cpp
 
-HEADERS += ../TaskM/taskmodel.h \
-           ../TaskM/taskfilterproxymodel.h \
-           ../TaskM/customdatamanager.h \
-           ../TaskM/task.h
+HEADERS += ../../taskmodel.h \
+           ../../taskfilterproxymodel.h \
+           ../../customdatamanager.h \
+           ../../task.h
 
-INCLUDEPATH += ../TaskM
+INCLUDEPATH += ../../

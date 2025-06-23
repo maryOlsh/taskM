@@ -1,0 +1,148 @@
+name: CI Build and Test
+
+on: push
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    container: ubuntu:22.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        apt-get update
+        apt-get install -y build-essential qt6-base-dev qt6-tools-dev-tools libgl1-mesa-dev gcovr
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '6.5.0'
+
+    - name: Build main project
+      run: |
+        cd .
+        qmake
+        make -j4
+
+    - name: Build tests tst_CustomDataManager
+      run: |
+        cd test/tst_CustomDataManager
+        qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
+        make -j4
+
+    - name: Run tests tst_CustomDataManager
+      run: |
+        cd test/tst_CustomDataManager
+        ./tst_CustomDataManager
+      env:
+        QT_QPA_PLATFORM: offscreen
+
+    - name: Generate coverage report tst_CustomDataManager
+      run: |
+        gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
+      working-directory: test/tst_CustomDataManager
+
+    - name: Upload coverage tst_CustomDataManager
+      uses: codecov/codecov-action@v3
+      with:
+        file: test/tst_CustomDataManager/coverage.xml
+        flags: unittests
+        
+    - name: Build tests tst_integration
+      run: |
+        cd test/tst_integration
+        qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
+        make -j4
+
+    - name: Run tests tst_integration
+      run: |
+        cd test/tst_integration
+        ./tst_integration
+      env:
+        QT_QPA_PLATFORM: offscreen
+
+    - name: Generate coverage report tst_integration
+      run: |
+        gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
+      working-directory: test/tst_integration
+
+    - name: Upload coverage tst_integration
+      uses: codecov/codecov-action@v3 
+      with:
+        file: test/tst_integration/coverage.xml
+        flags: unittests
+        
+    - name: Build tests tst_task
+      run: |
+        cd test/tst_task
+        qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
+        make -j4
+
+    - name: Run tests tst_task
+      run: |
+        cd test/tst_task
+        ./tst_task
+      env:
+        QT_QPA_PLATFORM: offscreen
+
+    - name: Generate coverage report tst_task
+      run: |
+        gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
+      working-directory: test/tst_task
+
+    - name: Upload coverage tst_task
+      uses: codecov/codecov-action@v3
+      with:
+        file: test/tst_task/coverage.xml
+        flags: unittests
+        
+         - name: Build tests tst_TaskFilterProxyModel
+      run: |
+        cd test/tst_TaskFilterProxyModel
+        qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
+        make -j4
+
+    - name: Run tests tst_TaskFilterProxyModel
+      run: |
+        cd test/tst_TaskFilterProxyModel
+        ./tst_TaskFilterProxyModel
+      env:
+        QT_QPA_PLATFORM: offscreen
+
+    - name: Generate coverage report tst_TaskFilterProxyModel
+      run: |
+        gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
+      working-directory: test/tst_TaskFilterProxyModel
+
+    - name: Upload coverage tst_TaskFilterProxyModel
+      uses: codecov/codecov-action@v3
+      with:
+        file: test/tst_TaskFilterProxyModel/coverage.xml
+        flags: unittests
+        
+         - name: Build tests tst_TaskModel
+      run: |
+        cd test/tst_TaskModel
+        qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
+        make -j4
+
+    - name: Run tests tst_TaskModel
+      run: |
+        cd test/tst_TaskModel
+        ./tst_TaskModel
+      env:
+        QT_QPA_PLATFORM: offscreen
+
+    - name: Generate coverage report tst_TaskModel
+      run: |
+        gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
+      working-directory: test/tst_TaskModel
+
+    - name: Upload coverage tst_TaskModel
+      uses: codecov/codecov-action@v3
+      with:
+        file: test/tst_TaskModel/coverage.xml
+        flags: unittests
