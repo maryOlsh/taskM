@@ -51,7 +51,7 @@ jobs:
       - name: Generate coverage report tst_CustomDataManager
         run: |
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
-          working-directory: test/tst_CustomDataManager
+        working-directory: test/tst_CustomDataManager
 
       - name: Upload coverage tst_CustomDataManager
         uses: codecov/codecov-action@v3
