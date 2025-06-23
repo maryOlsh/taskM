@@ -1,3 +1,7 @@
+/**
+ * @file task.cpp
+ * @brief Реализация класса Task.
+ */
 #include "task.h"
 #include <QDateTime>
 #include <QUuid>

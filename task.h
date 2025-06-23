@@ -1,3 +1,8 @@
+/**
+ * @file task.h
+ * @brief Класс Task — описание задачи.
+ */
+
 #ifndef TASK_H
 #define TASK_H
 
@@ -5,6 +10,10 @@
 #include <QDebug>
 #include <QUuid>
 
+/**
+ * @class Task
+ * @brief Класс, представляющий задачу (проектную или обычную).
+ */
 class Task {
 public:
     Task();

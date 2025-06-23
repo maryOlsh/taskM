@@ -1,8 +1,17 @@
+/**
+ * @file taskdelegate.h
+ * @brief Делегат для кастомного отображения задач в представлении.
+ */
+
 #ifndef TASKDELEGATE_H
 #define TASKDELEGATE_H
 
 #include <QStyledItemDelegate>
 
+/**
+ * @class TaskDelegate
+ * @brief Делегат для отрисовки задач в таблице/списке.
+ */
 class TaskDelegate : public QStyledItemDelegate
 {
     Q_OBJECT

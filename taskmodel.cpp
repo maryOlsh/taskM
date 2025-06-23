@@ -1,3 +1,7 @@
+/**
+ * @file taskmodel.cpp
+ * @brief Реализация модели задач.
+ */
 #include "taskmodel.h"
 #include <QDebug>
 #include <QPainter>

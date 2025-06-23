@@ -1,3 +1,7 @@
+/**
+ * @file taskdelegate.cpp
+ * @brief Реализация делегата для отображения задач.
+ */
 #include "taskdelegate.h"
 #include "taskmodel.h"
 #include <QPainter>

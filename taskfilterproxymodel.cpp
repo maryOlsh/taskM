@@ -1,3 +1,7 @@
+/**
+ * @file taskfilterproxymodel.cpp
+ * @brief Реализация прокси-модели для фильтрации задач.
+ */
 #include "taskfilterproxymodel.h"
 #include "taskmodel.h"
 #include <QDebug>

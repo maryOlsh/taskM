@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief Точка входа в приложение TaskM.
+ */
 #include "mainwindow.h"
 
 #include <QApplication>

@@ -1,3 +1,7 @@
+/**
+ * @file mainwindow.cpp
+ * @brief Реализация главного окна приложения TaskM.
+ */
 #include <QApplication>
 #include "mainwindow.h"
 #include "taskdialog.h"
