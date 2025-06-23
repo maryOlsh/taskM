@@ -1,6 +1,6 @@
 #include <QtTest>
 #include <QCoreApplication>
-#include "../TaskM/customdatamanager.h"
+#include "../../customdatamanager.h"
 #include <QStandardPaths>
 #include <QDir>
 #include <QColor>

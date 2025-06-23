@@ -1,3 +1,7 @@
+/**
+ * @file taskdialog.cpp
+ * @brief Реализация диалога создания и редактирования задач.
+ */
 #include "taskdialog.h"
 #include <QFormLayout>
 #include <QDialogButtonBox>

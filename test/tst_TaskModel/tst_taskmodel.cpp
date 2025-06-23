@@ -1,8 +1,8 @@
 #include <QtTest>
 #include <QCoreApplication>
-#include "../TaskM/taskmodel.h"
-#include "../TaskM/task.h"
-#include "../TaskM/customdatamanager.h"
+#include "../../taskmodel.h"
+#include "../../task.h"
+#include "../../customdatamanager.h"
 #include <QStandardPaths>
 #include <QDir>
 

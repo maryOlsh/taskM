@@ -1,9 +1,9 @@
 #include <QtTest>
 #include <QCoreApplication>
-#include "../TaskM/taskfilterproxymodel.h"
-#include "../TaskM/taskmodel.h"
-#include "../TaskM/task.h"
-#include "../TaskM/customdatamanager.h"
+#include "../../taskfilterproxymodel.h"
+#include "../../taskmodel.h"
+#include "../../task.h"
+#include "../../customdatamanager.h"
 #include <QStandardPaths>
 #include <QDir>
 
