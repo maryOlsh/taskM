@@ -1,3 +1,7 @@
+/**
+ * @file customdatamanager.cpp
+ * @brief Реализация менеджера пользовательских данных (проекты, статусы, приоритеты).
+ */
 #include "customdatamanager.h"
 #include <QFile>
 #include <QJsonDocument>

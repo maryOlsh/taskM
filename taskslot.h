@@ -3,6 +3,10 @@
 
 #include "task.h"
 
+/**
+ * @struct TaskSlot
+ * @brief Структура для хранения задачи и её временного интервала.
+ */
 struct TaskSlot {
     Task task;
     double start;

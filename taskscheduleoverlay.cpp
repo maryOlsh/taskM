@@ -1,3 +1,7 @@
+/**
+ * @file taskscheduleoverlay.cpp
+ * @brief Реализация наложения расписания задач поверх QTableWidget.
+ */
 #include "taskslot.h"
 #include "task.h"
 #include "taskscheduleoverlay.h"
@@ -22,6 +26,10 @@
 #include <QTimer>
 #include <QTime>
 
+/**
+ * @struct PositionedTask
+ * @brief Структура для хранения позиции и размера задачи на оверлее.
+ */
 struct PositionedTask {
     Task task;
     int top;
@@ -32,6 +40,14 @@ struct PositionedTask {
     int columnsCount;
 };
 
+/**
+ * @brief Вычисляет позиции задач для отображения на оверлее.
+ * @param tasks Список задач.
+ * @param table Таблица для отображения.
+ * @param minWidth Минимальная ширина колонки.
+ * @param overlayWidth Ширина оверлея.
+ * @return Вектор позиций задач.
+ */
 static QVector<PositionedTask> calculateTaskPositions(
     const QVector<Task>& tasks, QTableWidget* table, int minWidth, int overlayWidth)
 {
@@ -150,6 +166,10 @@ static QVector<PositionedTask> calculateTaskPositions(
 
 // --- TaskScheduleOverlay implementation ---
 
+/**
+ * @class TaskScheduleOverlay
+ * @brief Класс для отображения задач по времени поверх QTableWidget.
+ */
 TaskScheduleOverlay::TaskScheduleOverlay(QTableWidget *table, TaskModel *model, TaskFilterProxyModel *proxyModel, CustomDataManager *dataManager, QWidget *parent)
     : QWidget(parent), m_table(table), m_model(model), m_proxyModel(proxyModel), m_dataManager(dataManager)
 {

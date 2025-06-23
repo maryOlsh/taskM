@@ -4,17 +4,25 @@ on: push
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
-    container: ubuntu:22.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install dependencies
+      - name: Install dependencies
       run: |
-        apt-get update
-        apt-get install -y build-essential qt6-base-dev qt6-tools-dev-tools libgl1-mesa-dev gcovr
+        export DEBIAN_FRONTEND=noninteractive
+        sudo ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+            build-essential \
+            qt6-base-dev \
+            qt6-tools-dev-tools \
+            libgl1-mesa-dev \
+            gcovr \
+            cmake \
+            ninja-build
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -49,7 +57,6 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: test/tst_CustomDataManager/coverage.xml
-        flags: unittests
         
     - name: Build tests tst_integration
       run: |
@@ -73,7 +80,6 @@ jobs:
       uses: codecov/codecov-action@v3 
       with:
         file: test/tst_integration/coverage.xml
-        flags: unittests
         
     - name: Build tests tst_task
       run: |
@@ -97,7 +103,6 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: test/tst_task/coverage.xml
-        flags: unittests
         
     - name: Build tests tst_TaskFilterProxyModel
       run: |
@@ -121,7 +126,6 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: test/tst_TaskFilterProxyModel/coverage.xml
-        flags: unittests
         
     - name: Build tests tst_TaskModel
       run: |
@@ -145,4 +149,3 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         file: test/tst_TaskModel/coverage.xml
-        flags: unittests

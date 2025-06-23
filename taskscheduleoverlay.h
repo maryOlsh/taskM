@@ -1,3 +1,7 @@
+/**
+ * @file taskscheduleoverlay.h
+ * @brief Заголовочный файл для TaskScheduleOverlay — оверлея расписания задач.
+ */
 #ifndef TASKSCHEDULEOVERLAY_H
 #define TASKSCHEDULEOVERLAY_H
 
@@ -13,20 +17,43 @@ class TaskFilterProxyModel;
 class CustomDataManager;
 class QTimer;
 
+/**
+ * @struct OverlayTaskRect
+ * @brief Прямоугольник для отображения задачи на оверлее.
+ */
 struct OverlayTaskRect {
     QRect rect;
     Task task;
 };
 
+/**
+ * @class TaskScheduleOverlay
+ * @brief Оверлей для визуализации задач по времени поверх QTableWidget.
+ */
 class TaskScheduleOverlay : public QWidget {
     Q_OBJECT
 public:
     TaskScheduleOverlay(QTableWidget *table, TaskModel *model, TaskFilterProxyModel *proxyModel, CustomDataManager *dataManager, QWidget *parent = nullptr);
+    /**
+     * @brief Обновляет оверлей задач.
+     */
     void updateOverlay();
+    /**
+     * @brief Устанавливает выбранную дату для отображения.
+     * @param date Дата.
+     */
     void setSelectedDate(const QDate& date); // новый метод
+    /**
+     * @brief Игнорировать следующий клик мыши (для предотвращения ложных срабатываний).
+     */
     void ignoreNextClick();
 
 signals:
+    /**
+     * @brief Сигнал для запроса редактирования задачи.
+     * @param task Задача.
+     * @param proxyRow Строка в прокси-модели.
+     */
     void editTaskRequested(const Task &task, int proxyRow);
 
 protected:
