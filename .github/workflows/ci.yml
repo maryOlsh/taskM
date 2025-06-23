@@ -53,10 +53,11 @@ jobs:
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
         working-directory: test/tst_CustomDataManager
 
-      - name: Upload coverage tst_CustomDataManager
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage tst_CustomDataManager report as artifact
+        uses: actions/upload-artifact@v3
         with:
-          file: test/tst_CustomDataManager/coverage.xml
+          name: coverage-report-tst_CustomDataManager
+          path: test/tst_CustomDataManager/coverage.xml
         
       - name: Build tests tst_integration
         run: |
@@ -76,10 +77,11 @@ jobs:
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
         working-directory: test/tst_integration
 
-      - name: Upload coverage tst_integration
-        uses: codecov/codecov-action@v3 
+      - name: Upload coverage tst_integration report as artifact
+        uses: actions/upload-artifact@v3
         with:
-          file: test/tst_integration/coverage.xml
+          name: coverage-report-tst_integration
+          path: test/tst_integration/coverage.xml
         
       - name: Build tests tst_task
         run: |
@@ -99,10 +101,11 @@ jobs:
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
         working-directory: test/tst_task
 
-      - name: Upload coverage tst_task
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage tst_task report as artifact
+        uses: actions/upload-artifact@v3
         with:
-          file: test/tst_task/coverage.xml
+          name: coverage-report-tst_task
+          path: test/tst_task/coverage.xml
         
       - name: Build tests tst_TaskFilterProxyModel
         run: |
@@ -122,10 +125,11 @@ jobs:
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
         working-directory: test/tst_TaskFilterProxyModel
 
-      - name: Upload coverage tst_TaskFilterProxyModel
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage tst_TaskFilterProxyModel report as artifact
+        uses: actions/upload-artifact@v3
         with:
-          file: test/tst_TaskFilterProxyModel/coverage.xml
+          name: coverage-report-tst_TaskFilterProxyModel
+          path: test/tst_TaskFilterProxyModel/coverage.xml
         
       - name: Build tests tst_TaskModel
         run: |
@@ -145,7 +149,8 @@ jobs:
           gcovr --exclude '.*/test/.*' --exclude '.*/usr/.*' --root ../ --xml -o coverage.xml
         working-directory: test/tst_TaskModel
 
-      - name: Upload coverage tst_TaskModel
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage tst_TaskModel report as artifact
+        uses: actions/upload-artifact@v3
         with:
-          file: test/tst_TaskModel/coverage.xml
+          name: coverage-report-tst_TaskModel
+          path: test/tst_TaskModel/coverage.xml
