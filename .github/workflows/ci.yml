@@ -54,7 +54,7 @@ jobs:
         working-directory: test/tst_CustomDataManager
 
       - name: Upload coverage tst_CustomDataManager report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report-tst_CustomDataManager
           path: test/tst_CustomDataManager/coverage.xml
@@ -78,7 +78,7 @@ jobs:
         working-directory: test/tst_integration
 
       - name: Upload coverage tst_integration report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report-tst_integration
           path: test/tst_integration/coverage.xml
@@ -102,7 +102,7 @@ jobs:
         working-directory: test/tst_task
 
       - name: Upload coverage tst_task report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report-tst_task
           path: test/tst_task/coverage.xml
@@ -126,7 +126,7 @@ jobs:
         working-directory: test/tst_TaskFilterProxyModel
 
       - name: Upload coverage tst_TaskFilterProxyModel report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report-tst_TaskFilterProxyModel
           path: test/tst_TaskFilterProxyModel/coverage.xml
@@ -150,7 +150,7 @@ jobs:
         working-directory: test/tst_TaskModel
 
       - name: Upload coverage tst_TaskModel report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report-tst_TaskModel
           path: test/tst_TaskModel/coverage.xml
