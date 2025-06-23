@@ -99,7 +99,7 @@ jobs:
         file: test/tst_task/coverage.xml
         flags: unittests
         
-         - name: Build tests tst_TaskFilterProxyModel
+    - name: Build tests tst_TaskFilterProxyModel
       run: |
         cd test/tst_TaskFilterProxyModel
         qmake "CONFIG+=debug" "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage"
